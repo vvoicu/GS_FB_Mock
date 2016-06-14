@@ -9,7 +9,8 @@ import com.tools.FieldGenerator.Mode;
 public class MessageDetailsModel {
 
 	public String message;
-	public List<DataBasicModel> to;
+//	public List<DataBasicModel> to;
+	public MessageToModel to;
 	public DataBasicModel from;
 	public String created_time;
 	public String id;
@@ -21,6 +22,8 @@ public class MessageDetailsModel {
 		setCreated_time();
 		setId();
 	}
+	
+	
 
 	public String getMessage() {
 		return message;
@@ -34,15 +37,24 @@ public class MessageDetailsModel {
 		this.message = FieldGenerator.generateRandomString(15, Mode.ALPHANUMERICSCHAR);
 	}
 
-	public List<DataBasicModel> getTo() {
+//	public List<DataBasicModel> getTo() {
+//		return to;
+//	}
+//	public void setTo(List<DataBasicModel> to) {
+//		this.to = to;
+//	}
+//	public void setTo() {
+//		this.to = new ArrayList<DataBasicModel>();
+//	}
+	
+	public MessageToModel getTo() {
 		return to;
 	}
-
-	public void setTo(List<DataBasicModel> to) {
+	public void setTo(MessageToModel to) {
 		this.to = to;
 	}
 	public void setTo() {
-		this.to = new ArrayList<DataBasicModel>();
+		this.to = new MessageToModel();
 	}
 
 	public DataBasicModel getFrom() {
