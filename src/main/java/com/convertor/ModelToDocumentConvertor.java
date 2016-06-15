@@ -42,7 +42,7 @@ public class ModelToDocumentConvertor {
 		List<Document> resultList = new ArrayList<Document>();
 		Document result = new Document();
 		result.put(ModelKeys.messagesDataMessage, messageDetailsModel.getMessage());
-		result.put(ModelKeys.messagesDataTo, convertDataBasicModels(messageDetailsModel.getTo()));
+		result.put(ModelKeys.messagesDataTo, convertMessageToModel(messageDetailsModel.getTo()));
 		result.put(ModelKeys.messagesDataFrom, convertDataBasicModel(messageDetailsModel.getFrom()));
 		result.put(ModelKeys.messagesDataCreatedTime, messageDetailsModel.getCreated_time());
 		result.put(ModelKeys.messagesDataId, messageDetailsModel.getId());
@@ -52,7 +52,7 @@ public class ModelToDocumentConvertor {
 
 	public static Document convertMessageToModel(MessageToModel messageToModel) {
 		Document result = new Document();
-		result.put(ModelKeys.messagesDataToData, convertDataBasicModel(messageToModel.getData()));
+		result.put(ModelKeys.messagesDataToData, convertDataBasicModels(messageToModel.getData()));
 		return result;
 	}
 

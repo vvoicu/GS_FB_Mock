@@ -23,6 +23,7 @@ public class ParticipantsModel {
 	}
 	public void setData(){
 		this.data = new ArrayList<ParticipantsDetailsModel>();
+		this.data.add(new ParticipantsDetailsModel());
 	}
 //	public ParticipantsDetailsModel getData() {
 //		return data;

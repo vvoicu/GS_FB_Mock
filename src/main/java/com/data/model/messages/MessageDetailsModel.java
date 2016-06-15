@@ -1,16 +1,14 @@
 package com.data.model.messages;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.tools.FieldGenerator;
 import com.tools.FieldGenerator.Mode;
 
 public class MessageDetailsModel {
 
 	public String message;
-	public List<DataBasicModel> to;
-//	public MessageToModel to;
+//	public List<DataBasicModel> to;
+//	public List<DataBasicModel> to;
+	public MessageToModel to;
 	public DataBasicModel from;
 	public String created_time;
 	public String id;
@@ -37,25 +35,26 @@ public class MessageDetailsModel {
 		this.message = FieldGenerator.generateRandomString(15, Mode.ALPHANUMERICSCHAR);
 	}
 
-	public List<DataBasicModel> getTo() {
-		return to;
-	}
-	public void setTo(List<DataBasicModel> to) {
-		this.to = to;
-	}
-	public void setTo() {
-		this.to = new ArrayList<DataBasicModel>();
-	}
-	
-//	public MessageToModel getTo() {
+//	public List<DataBasicModel> getTo() {
 //		return to;
 //	}
-//	public void setTo(MessageToModel to) {
+//	public void setTo(List<DataBasicModel> to) {
 //		this.to = to;
 //	}
 //	public void setTo() {
-//		this.to = new MessageToModel();
+//		this.to = new ArrayList<DataBasicModel>();
+//		this.to.add(new DataBasicModel());
 //	}
+	
+	public MessageToModel getTo() {
+		return to;
+	}
+	public void setTo(MessageToModel to) {
+		this.to = to;
+	}
+	public void setTo() {
+		this.to = new MessageToModel();
+	}
 
 	public DataBasicModel getFrom() {
 		return from;
