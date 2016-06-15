@@ -42,7 +42,7 @@ public class ModelToDocumentConvertor {
 		List<Document> resultList = new ArrayList<Document>();
 		Document result = new Document();
 		result.put(ModelKeys.messagesDataMessage, messageDetailsModel.getMessage());
-		result.put(ModelKeys.messagesDataTo, convertMessageToModel(messageDetailsModel.getTo()));
+		result.put(ModelKeys.messagesDataTo, convertDataBasicModels(messageDetailsModel.getTo()));
 		result.put(ModelKeys.messagesDataFrom, convertDataBasicModel(messageDetailsModel.getFrom()));
 		result.put(ModelKeys.messagesDataCreatedTime, messageDetailsModel.getCreated_time());
 		result.put(ModelKeys.messagesDataId, messageDetailsModel.getId());
@@ -63,22 +63,51 @@ public class ModelToDocumentConvertor {
 		result.put(ModelKeys.messagesDataToDataId, dataBasicModel.getId());
 		return result;
 	}
-	
-	public static Document convertPagingModelToDocument(PagingModel pagingModel){
+
+	public static List<Document> convertDataBasicModels(List<DataBasicModel> dataBasicModel) {
+		List<Document> result = new ArrayList<Document>();
+
+		for (DataBasicModel dataNow : dataBasicModel) {
+			Document resultNow = new Document();
+			resultNow.put(ModelKeys.messagesDataToDataName, dataNow.getName());
+			resultNow.put(ModelKeys.messagesDataToDataEmail, dataNow.getEmail());
+			resultNow.put(ModelKeys.messagesDataToDataId, dataNow.getId());
+
+			result.add(resultNow);
+		}
+
+		return result;
+	}
+
+	public static Document convertPagingModelToDocument(PagingModel pagingModel) {
 		Document result = new Document();
 		result.put(ModelKeys.messagesPagingPrevious, pagingModel.getPrevious());
 		result.put(ModelKeys.messagesPagingNext, pagingModel.getNext());
 		return result;
-		
+
 	}
-	
+
 	public static Document convertParticipantsModelToDocument(ParticipantsModel participantsModel) {
 		Document result = new Document();
-		result.put(ModelKeys.participantsData, convertParticipantsDetailsModel(participantsModel.getData()));
+		result.put(ModelKeys.participantsData, convertParticipantsDetailsModels(participantsModel.getData()));
 		result.put(ModelKeys.participantsPaging, convertParticipantsPagingModel(participantsModel.getPaging()));
 		return result;
 	}
 
+	public static List<Document> convertParticipantsDetailsModels(List<ParticipantsDetailsModel> participantsDetailsModel) {
+		List<Document> resultList = new ArrayList<Document>();
+
+		for (ParticipantsDetailsModel elementNow : participantsDetailsModel) {
+			Document result = new Document();
+			result.put(ModelKeys.participantsDataName, elementNow.getName());
+			result.put(ModelKeys.participantsDataId, elementNow.getId());
+			result.put(ModelKeys.participantsDataPicture, convertParticipantsPictureModel(elementNow.getPicture()));
+
+			resultList.add(result);
+		}
+
+		return resultList;
+	}
 	public static Document convertParticipantsDetailsModel(ParticipantsDetailsModel participantsDetailsModel) {
 		Document result = new Document();
 		result.put(ModelKeys.participantsDataName, participantsDetailsModel.getName());
@@ -102,15 +131,12 @@ public class ModelToDocumentConvertor {
 
 		return result;
 	}
-	
+
 	public static Document convertParticipantsPagingModel(ParticipantsPagingModel participantsPagingModel) {
 		Document result = new Document();
 		result.put(ModelKeys.participantsPagingNext, participantsPagingModel.getNext());
-		
+
 		return result;
 	}
-
-
-
 
 }

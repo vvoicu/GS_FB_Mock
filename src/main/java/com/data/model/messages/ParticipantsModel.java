@@ -5,8 +5,8 @@ import java.util.List;
 
 public class ParticipantsModel {
 	
-//	public List<ParticipantsDetailsModel> data;
-	public ParticipantsDetailsModel data;
+	public List<ParticipantsDetailsModel> data;
+//	public ParticipantsDetailsModel data;
 	public ParticipantsPagingModel paging;
 	
 	public ParticipantsModel(){
@@ -15,24 +15,24 @@ public class ParticipantsModel {
 	}
 	
 	
-//	public List<ParticipantsDetailsModel> getData() {
-//		return data;
-//	}
-//	public void setData(List<ParticipantsDetailsModel> data) {
-//		this.data = data;
-//	}
-//	public void setData(){
-//		this.data = new ArrayList<ParticipantsDetailsModel>();
-//	}
-	public ParticipantsDetailsModel getData() {
+	public List<ParticipantsDetailsModel> getData() {
 		return data;
 	}
-	public void setData(ParticipantsDetailsModel data) {
+	public void setData(List<ParticipantsDetailsModel> data) {
 		this.data = data;
 	}
 	public void setData(){
-		this.data = new ParticipantsDetailsModel();
+		this.data = new ArrayList<ParticipantsDetailsModel>();
 	}
+//	public ParticipantsDetailsModel getData() {
+//		return data;
+//	}
+//	public void setData(ParticipantsDetailsModel data) {
+//		this.data = data;
+//	}
+//	public void setData(){
+//		this.data = new ParticipantsDetailsModel();
+//	}
 	
 	public ParticipantsPagingModel getPaging() {
 		return paging;
