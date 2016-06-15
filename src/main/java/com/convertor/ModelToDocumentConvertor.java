@@ -1,5 +1,6 @@
 package com.convertor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.Document;
@@ -37,15 +38,16 @@ public class ModelToDocumentConvertor {
 		return result;
 	}
 
-	public static Document convertMessageDetailsModelToDocument(MessageDetailsModel messageDetailsModel) {
+	public static List<Document> convertMessageDetailsModelToDocument(MessageDetailsModel messageDetailsModel) {
+		List<Document> resultList = new ArrayList<Document>();
 		Document result = new Document();
 		result.put(ModelKeys.messagesDataMessage, messageDetailsModel.getMessage());
 		result.put(ModelKeys.messagesDataTo, convertMessageToModel(messageDetailsModel.getTo()));
 		result.put(ModelKeys.messagesDataFrom, convertDataBasicModel(messageDetailsModel.getFrom()));
 		result.put(ModelKeys.messagesDataCreatedTime, messageDetailsModel.getCreated_time());
 		result.put(ModelKeys.messagesDataId, messageDetailsModel.getId());
-		
-		return result;
+		resultList.add(result);
+		return resultList;
 	}
 
 	public static Document convertMessageToModel(MessageToModel messageToModel) {
